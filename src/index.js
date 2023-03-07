@@ -56,3 +56,6 @@ export {TableRow} from './VHP/Tables/DataTable/TableRow'
 //ViewControllers
 export {MenuSideBar} from './VHP/ViewControllers/MenuSideBar'
 export {MenuTabBar} from './VHP/ViewControllers/MenuTabBar'
+
+//Datalists
+export { Months } from './VHP/Dropdowns/Datalists'
