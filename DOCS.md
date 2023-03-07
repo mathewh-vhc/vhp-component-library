@@ -84,6 +84,8 @@ Buttons are components which enable a basic level of interactivity between the a
 
 >*text*: text to display over the button.
 
+>*role*: the role of the button, used for finding buttons in tests. *Optional.*
+
 >*ClickFunction*: the function activated by clicking the button. Replicates onClick().
 
 >*data*: the data being passed into the ClickFunction. To pass in more than one property, pass as an array or object as specified by your click function.
@@ -109,6 +111,67 @@ A dropdown class fills the role of the HTML *select* element, with additional fu
 **DropOption**: Replicates the HTML option tag. Internal component use only.
 
 ---
+
+## *Forms*
+
+---
+
+A set of classes which fill the role of HTML *form* elements. Can be used for creating a variety of forms, and supports most component/input types.
+
+**StaticForm**: A basic form, which takes only objects that have a *title* and *value*. **DEPRECATED**
+
+**InputForm**: The component used for creating a customized form. Takes a formdata array, which it translates into a customizable form.
+
+>*formdata*: an array in the format **[{},{},{}]** where {} is an object usable by the formdata object following the format described below depending on which type of object you wish to create. Each object will have a *inputType* property which determines what type of component the form will generate for the object. All FormItems have an optional *formItemClass* attribute which specifies a class for the component. If no inputType is specified, the form will default to an uneditable form item, similar to the *StaticForm* component. All form items **must** have a title attribute.
+
+>>***TextInput***
+```
+value: {string} | displayed text.
+ChangeFunction: {function} | function called in form container for updating state. Triggered by the onchange() event.
+type: [opt] {String} | type of HTML input, default text.
+data: {*} | data passed along to ChangeFunction.
+```
+
+>>***TextArea***
+```
+value: {string} | displayed text.
+ChangeFunction: {function} | function called in form container for updating state. Triggered by the onchange() event.
+data: {*} | data passed along to ChangeFunction.
+```
+>>***DropDown***
+```
+list: {array} | list of options in format DropDown requires.
+selected: {{text,value}} | an object which specifies the default selected option. Does not necessarily have to be in the list - can do, for example, {text:"Choose One", value:""}. If the default selected isn't in the list, selecting an option will remove it until the component is reloaded.
+ChangeFunction: {function} | function called in form container for updating state. Triggered by the onchange() event.
+data: {*} | data passed along to ChangeFunction.
+```
+
+>>***SearchBar***
+```
+searchKey: {String} | the key used for searching, passed into the search function.
+searchClass: {String} | the class of the search bar. Will be swapped to use formItemClass in the future so should specify both.
+FilterFunction: {function} | function called to filter the data. Triggered by the onchange() event.
+type: [opt] {String} | type of HTML input, default text.
+```
+
+>>***TextButton***
+```
+text: {String} | text displayed on the button.
+role: {String} | the role of the button, used for testing purposes.
+ClickFunction: {function} | function called in form container for updating state. Triggered by the onclick() event
+data: {*} | data passed along to ClickFunction.
+buttonClass: {String} | the class of the button. Will be swapped to use formItemClass in the future so should specify both.
+```
+
+>>***Checkbox***
+*Note that checkboxes should **only** use true/false values, and their ClickFunctions should respect that.*
+```
+value: {boolean} | true of false value to determine the state of the checkbox.
+title: {String} | the key used for React.
+ClickFunction: {function} | function called in form container for updating state. Triggered by the onclick() event
+data: {*} | data passed along to ClickFunction.
+buttonClass: {String} | the class of the button. Will be swapped to use formItemClass in the future so should specify both.
+```
 
 ## *Tables*
 
