@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../Styles/Input.css'
 
 export class TextInput extends Component {
     constructor(props) {
