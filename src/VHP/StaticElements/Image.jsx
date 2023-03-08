@@ -15,7 +15,7 @@ export class Image extends Component {
 
     render() {
         return(
-            <img src={this.props.src} className = {this.imageClass}/>
+            <img src={this.props.src} className = {this.imageClass} id = {this.props.id}/>
         );
     }
 }

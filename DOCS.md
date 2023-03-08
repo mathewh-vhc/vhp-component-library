@@ -185,8 +185,34 @@ buttonClass: {String} | the class of the button. Will be swapped to use formItem
 
 A collection of basic text and image objects that can be used to replicate images, paragraphs, and headers.
 
+**BasicHeader**: A basic text header. Similar to the HX HTML tags.
+
+>*headerClass*: the optional class given to the header.
+
+>*text*: the text displayed by the header.
+
+**ArrayHeader**: A header which can contain multiple elements, useful for displaying different properties as a single header.
+
+>*headerClass*: the optional class given to the header container.
+
+>*text*: an array of Strings which will be displayed by the header.
+
+**Image**: A basic image element.
+
+>*imageClass*: the optional class given to the image.
+
+>*src*: the url of the image that will be displayed.
+
 ---
 
 ## *ViewControllers*
 
-A set of controllers that can be used to create menus and pages. A combination of components and CSS can be used to customize the look and functionality of different menu types.
+A set of controllers that can be used to create menus and pages. A combination of components and CSS can be used to customize the look and functionality of different menu types. There are a number of default ViewControllers which can be further customized and extended. Note that each ViewController **requires** a SetTab() function, as the currently selected view will be controlled by the component or application creating the ViewController. When a button is selected, its HTML object will be modified and contain "selected" as a class, allowing customization of the selected button using CSS.
+
+**MenuTabBar**: A basic tabbed view controller.
+
+>*tabs*: an array of Strings which are the name of each tab.
+
+>*MenuStyle*: the MenuStyle used for extending the CSS. Adds to the class of the outer container, forming as its class "menu-bar {MenuStyle}".
+
+>*images*: an optional array of URLs that can be provided to create a menu with images.
