@@ -93,6 +93,7 @@ export class InputForm extends Component {
 					inputClass = {inputData.inputClass}
 					data = {inputData.data}
 					key = {inputData.title}
+					id = {inputData.id}
 					value = {inputData.value}
 				/>
 			)
@@ -106,7 +107,7 @@ export class InputForm extends Component {
     MapFormData() {
         const formdata = this.props.formdata
         const items = formdata.map((obj, index) => 
-            <label className='form-info-item' key = {index} id = {obj.id}>
+            <label className='form-info-item' key = {index}>
                 <span className='form-info-title' htmlFor={obj.title}>{obj.title}</span>
                 {this.GetInput(obj)}
             </label>

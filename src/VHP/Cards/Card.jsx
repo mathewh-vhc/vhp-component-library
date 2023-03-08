@@ -25,7 +25,7 @@ export class Card extends Component {
 
     render() {
         return(
-            <div className={this.cardClass} id={this.props.id}>
+            <div className={this.cardClass} id={this.props.id} data-testid = {this.props.id}>
 				{this.props.titlebar&&<CardTitlebar title={this.props.title} actions = {this.props.actions} data = {this.props.data}/>}
 				<CardContent id={this.props.id+"-card-content"}>
 					{this.props.children}

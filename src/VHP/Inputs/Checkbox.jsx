@@ -27,7 +27,7 @@ export class Checkbox extends Component {
                 className = {this.inputClass}
                 id = {this.props.id}
             >
-                {this.props.value&&<div className = "checkbox-check"></div>}
+                {this.props.value&&<div className = "checkbox-check" data-testid = {this.props.id + "checkbox-check"}></div>}
             </div>
         );
     }
